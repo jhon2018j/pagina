@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script type="text/javascript">
+        function valida_formulario() {
+
+            var n = document.getElementById("nombre").value;
+            var a = document.getElementById("apellidos").value;
+            var td = document.getElementById("#tipodoc").value;
+            if (n == '') {
+                alert("error, debe ingresar el Nombre"); return false;
+            } else if (a == '') {
+                alert("error, debe ingresar Apellidos"); return false;
+            } else if (td == '-1') {
+                alert("error, debe ingresar el tipo de documento"); return false;
+            }
+            alert("Bienvenido cliente:\n"
+                + "nombre" + n + "\n"
+                + "Apellidos" + a + "\n"
+                + "tipodoc:" + td);
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1>Formularios HTML5</h1>
+
+    <form name="frmdatos" action="pendiente" method="post" onsubmit="return valida_formulario();">
+        <table border="1">
+            <tr>
+                <td><b>Nombres:</td></b>
+                <td><input type="text" id="nombre"></td>
+
+            </tr>
+            <tr>
+                <td><b>Apellidos</td></b>
+                <td><input type="text" id="apellidos"></td>
+            </tr>
+
+            <tr>
+                <td><b> Tipo de documento:</td></b>
+                <td><select id="tipodoc">
+                        <option value="-1" selected>seleccione una opcion</option>
+                        <option value="TI">Tarjeta de identidad</option>
+                        <option value="CC">Cedula de Ciudadania</option>
+                        <option value="CE">Cedula de Extranjeria</option>
+                        <option value="PPT">Permiso de Proteccion Temporal</option>
+                    </select></td>
+            </tr>
+            </tr>
+            <tr>
+                <td><b>documento</td></b>
+                <td><input type="text" id="numdoc"></td>
+            </tr>
+            <tr>
+                <td><b>Genero</td></b>
+                <td>M<input type="radio" id="gen1" name="genero" value="M">
+                    F<input type="radio" id="gen2" name="genero" value="F">
+                    O<input type="radio" id="gen3" name="genero" value="O"> </td>
+            </tr>
+            <tr>
+                <td><b>Acepta Condiciones:</td></b>
+                <td><input type="checkbox" id="acepta" value="si"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Enviar"></td>
+                <td><input type="reset" value="Limpiar"></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>
